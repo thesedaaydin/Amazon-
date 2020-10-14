@@ -9,6 +9,8 @@ public class LoginPage extends BasePage {
     public LoginPage(WebDriver driver) {
         super (driver);
     }
+    
+    //Burada linke gittikten sonra sayfada login olma işlemleri görülmektedir.
     public HomePage login(String email, String password) throws InterruptedException {
         actionsSelector ("div[class='nav-line-1-container']>span");
         clickCssSelector ("div[id='nav-signin-tooltip']>a>span");
