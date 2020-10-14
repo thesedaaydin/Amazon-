@@ -8,6 +8,7 @@ public class BaseTest {
     public WebDriver driver;
 
 
+ //Before ve afterı kullanarak bağlantı kurup kestim . Connect'e chorme driverin yerini göstererek açılmasını sağladım.
 
     @Before
     public void connet(){
@@ -18,6 +19,7 @@ public class BaseTest {
     @After
     public void cut() throws InterruptedException {
         Thread.sleep(2000);
+        //Driver.quit ile sayfayı kapatıyoruz
         driver.quit();
     }
 }
