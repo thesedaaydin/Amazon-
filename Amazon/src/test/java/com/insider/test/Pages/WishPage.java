@@ -13,15 +13,18 @@ public class WishPage extends BasePage {
         super (driver);
     }
 
+    //seçilen product'ı wish list'e eklemek;
     public WishPage addWishList(){
         clickId ("wishListMainButton");
         clickId ("WLHUC_viewlist");
+        //Eklenen ürün seçilen ürünle aynı mı diye kontrol sağlanması için konsola yazıldı.
         System.out.println("Eklenen ürün kontrolü;");
         write ("h3[class='a-size-base']>a");
 
         return new WishPage(driver);
     }
 
+    //Wish listeki ürünün silinmesi ve listenin yenilenmesi
     public WishPage deleteWishList() throws InterruptedException {
         TimeUnit.SECONDS.sleep (2);
         clickId ("a-autoid-7");
@@ -32,6 +35,8 @@ public class WishPage extends BasePage {
         return new WishPage(driver);
     }
 
+    //Sayfa yenilendikten sonra sayfada ürün var ise ;
+    //yok ise kontrolü case göre dğişebileceği için bir tanesi comment satırına alındı.
     public void productinList(){
 
         System.out.println("-----------------------------------------------------------");
@@ -40,6 +45,7 @@ public class WishPage extends BasePage {
         //Listede başka ürün yoksa kullanılacak;
         // write ("span[class='a-size-medium a-color-base']");
 
+        //listede ürün var ise ;
         list ("//*[@class='a-column a-span12 g-span12when-narrow g-span7when-wide']/div/h3");
 
 
