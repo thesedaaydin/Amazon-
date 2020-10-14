@@ -24,7 +24,7 @@ public class BasePage {
     }
 
 
-
+    //HomePage çağırıldığında linke yolladım.
     public HomePage callHomepage(){
         driver.get("https://www.amazon.com.tr");
         return new HomePage(driver);
@@ -48,16 +48,21 @@ public class BasePage {
         element.click ();
 
     }
+    
+    //Kullnıcı gibi hareket etmek için actions kullandım.
     public void actionsSelector(String selector) {
         Actions actionss = new Actions (driver);
         actionss.moveToElement (driver.findElement (By.cssSelector (selector))).click ();
 
     }
-
+    
+    //CssSelector'e tıklama yapmak için.  
     public void clickCssSelector(String selector){
         WebElement element=new WebDriverWait (driver, 30).until (ExpectedConditions.visibilityOfElementLocated(By.cssSelector (selector)));
         element.click ();
     }
+    
+    //Css selectoru verilen ürünü console'a yazdırmak 
     public void write(String name) {
         WebElement listElement = new WebDriverWait (driver, 30).until (ExpectedConditions.visibilityOfElementLocated(By.cssSelector (name)));
         String elementText = listElement.getText();
@@ -69,16 +74,19 @@ public class BasePage {
         element.clear();
         element.sendKeys(value);
     }
+    
     public  void setSelector(String id, String value){
         WebElement element = new WebDriverWait(driver, 30).until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector (id)));
         element.clear();
         element.sendKeys(value);
     }
+    
     public void clickXpath(String xpath){
         WebElement element=new WebDriverWait (driver, 30).until (ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
         element.click ();
     }
-
+    
+    //Xpath ile listeleme yapıp console'a yazdırmak
     public void list(String xpath){
         List<WebElement> allProduct = driver.findElements(By.xpath(xpath));
         for( WebElement product : allProduct){
